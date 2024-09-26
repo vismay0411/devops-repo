@@ -19,7 +19,7 @@ def test_convert_temp_f_to_c(client, temp, expected):
     assert response.status_code == 200
     assert response.json['converted_temp'] == pytest.approx(expected, rel=1e-2)
 
-# Celsius to Fahrenheit
+# Celsius to Fahrenheit #
 @pytest.mark.parametrize("temp, expected", [(100, 212.0), (0, 32.0), (-40, -40.0)])
 def test_convert_temp_c_to_f(client, temp, expected):
     response = client.get(f'/convert-temp?temp={temp}&scale=celsius&target_scale=fahrenheit')
